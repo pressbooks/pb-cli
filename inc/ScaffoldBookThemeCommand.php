@@ -86,7 +86,6 @@ class ScaffoldBookThemeCommand {
 		} else {
 			$theme_dir = WP_CONTENT_DIR . '/themes/' . $assoc_args['slug'];
 		}
-		WP_CLI::log( $theme_dir );
 		$force = Utils\get_flag_value( $assoc_args, 'force' );
 		$package_root = dirname( dirname( __FILE__ ) );
 		$template_path = $package_root . '/templates/';
