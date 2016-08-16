@@ -91,6 +91,7 @@ class ScaffoldBookThemeCommand {
 		} else {
 			$theme_dir = WP_CONTENT_DIR . '/themes/' . $assoc_args['slug'];
 		}
+		WP_CLI::log( $theme_dir );
 		$force = Utils\get_flag_value( $assoc_args, 'force' );
 		$package_root = dirname( dirname( __FILE__ ) );
 		$template_path = $package_root . '/templates/';
@@ -103,5 +104,60 @@ class ScaffoldBookThemeCommand {
 		} else {
 			WP_CLI::success( "Created theme files in {$theme_dir}" );
 		}
+	}
+
+	private static function rewrap_param_desc( $matches ) {
+		$param = $matches[1];
+		$desc = self::indent( "\t\t", $matches[2] );
+		return "\t$param\n$desc\n\n";
+	}
+
+	private static function indent( $whitespace, $text ) {
+		$lines = explode( "\n", $text );
+		foreach ( $lines as &$line ) {
+			$line = $whitespace . $line;
+		}
+		return implode( $lines, "\n" );
+	}
+
+	private function prompt_if_files_will_be_overwritten( $filename, $force ) {
+		$should_write_file = true;
+		if ( ! file_exists( $filename ) ) {
+			return true;
+		}
+		WP_CLI::warning( 'File already exists' );
+		WP_CLI::log( $filename );
+		if ( ! $force ) {
+			do {
+				$answer = \cli\prompt(
+					'Skip this file, or replace it with scaffolding?',
+					$default = false,
+					$marker = '[s/r]: '
+				);
+			} while ( ! in_array( $answer, array( 's', 'r' ) ) );
+			$should_write_file = 'r' === $answer;
+		}
+		$outcome = $should_write_file ? 'Replacing' : 'Skipping';
+		WP_CLI::log( $outcome . PHP_EOL );
+		return $should_write_file;
+	}
+
+	private function create_files( $files_and_contents, $force ) {
+		$wrote_files = array();
+		foreach ( $files_and_contents as $filename => $contents ) {
+			$should_write_file = $this->prompt_if_files_will_be_overwritten( $filename, $force );
+			if ( ! $should_write_file ) {
+				continue;
+			}
+			if ( ! is_dir( dirname( $filename ) ) ) {
+				Process::create( Utils\esc_cmd( 'mkdir -p %s', dirname( $filename ) ) )->run();
+			}
+			if ( ! file_put_contents( $filename, $contents ) ) {
+				WP_CLI::error( "Error creating file: $filename" );
+			} elseif ( $should_write_file ) {
+				$wrote_files[] = $filename;
+			}
+		}
+		return $wrote_files;
 	}
 }
