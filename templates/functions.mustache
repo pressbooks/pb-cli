@@ -4,8 +4,8 @@
  * @license {{license}}
  */
 
-function {{prefix}}_theme_setup() {
-	// Add theme support here.
+function {{theme_function_safe}}_theme_setup() {
+	// Add theme support for special features here.
 }
 
-add_action( 'after_setup_theme', '{{prefix}}_theme_setup' );
+add_action( 'after_setup_theme', '{{theme_function_safe}}_theme_setup' );
