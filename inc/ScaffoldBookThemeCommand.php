@@ -25,10 +25,7 @@ class ScaffoldBookThemeCommand {
 	 * : Slug for the new theme.
 	 *
 	 * [--theme_name=<theme_name>]
-	 * : Name for the new theme.
-	 * ---
-	 * default: <slug>
-	 * ---
+	 * : Name for the new theme. Defaults to <slug>.
 	 *
 	 * [--description=<description>]
 	 * : Human-readable description for the theme.
@@ -49,10 +46,7 @@ class ScaffoldBookThemeCommand {
 	 * ---
 	 *
 	 * [--textdomain=<textdomain>]
-	 * : Text domain for the theme.
-	 * ---
-	 * default: <slug>
-	 * ---
+	 * : Text domain for the theme. Defaults to <slug>.
 	 *
 	 * [--version=<version>]
 	 * : Version for the theme.
@@ -80,6 +74,7 @@ class ScaffoldBookThemeCommand {
 		);
 		$assoc_args = array_merge( $defaults, $assoc_args );
 		$assoc_args['slug'] = $args[0];
+		$assoc_args['prefix'] = str_replace('-', '_', $args[0]);
 		if ( empty( $assoc_args['theme_name'] ) ) {
 			$assoc_args['theme_name'] = $args[0];
 		}
