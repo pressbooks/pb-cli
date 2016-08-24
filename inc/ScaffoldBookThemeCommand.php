@@ -131,9 +131,9 @@ class ScaffoldBookThemeCommand {
 		), $force );
 
 		if ( empty( $files_written ) ) {
-			WP_CLI::log( 'All theme files were skipped.' );
+			WP_CLI::log( 'Theme files were skipped.' );
 		} else {
-			WP_CLI::success( "Created theme files in {$theme_dir}" );
+			WP_CLI::success( 'Created theme ' . $assoc_args['theme_name'] . '.' );
 		}
 
 		if ( \WP_CLI\Utils\get_flag_value( $assoc_args, 'activate' ) ) {

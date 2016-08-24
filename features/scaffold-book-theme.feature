@@ -7,6 +7,6 @@ Feature: Scaffold book themes.
 		When I run `wp scaffold book-theme pressbooks-mcluhan`
 		Then STDOUT should contain:
 			"""
-			Created theme files in {THEME_DIR}/pressbooks-mcluhan.
+			Created theme Pressbooks-mcluhan.
 			"""
 		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should exist
