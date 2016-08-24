@@ -66,7 +66,7 @@ class ScaffoldBookThemeCommand {
 	 * [--force]
 	 * : Overwrite files that already exist.
 	 *
-	 * @when before_wp_load
+	 * @when after_wp_load
 	 */
 	public function theme( $args, $assoc_args ) {
 		$theme_slug = $args[0];
