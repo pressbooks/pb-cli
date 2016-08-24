@@ -9,4 +9,4 @@ Feature: Scaffold book themes.
 			"""
 			Created theme files in {THEME_DIR}/pressbooks-mcluhan.
 			"""
-		And the {THEME_DIR}/pressbooks-mcluhans/style.css file should exist
+		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should exist
