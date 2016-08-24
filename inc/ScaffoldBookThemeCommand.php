@@ -70,7 +70,7 @@ class ScaffoldBookThemeCommand {
 	 */
 	public function theme( $args, $assoc_args ) {
 		$theme_slug = $args[0];
-		$assoc_args = wp_parse_args( $assoc_args, [
+		$assoc_args = array_merge( [
 			'description' => '',
 			'uri' 				=> '',
 			'author'    	=> '',
@@ -78,7 +78,7 @@ class ScaffoldBookThemeCommand {
 			'license'			=> 'GPL-2.0+',
 			'version'			=> '1.0',
 			'dir'         => '',
-		] );
+		], $assoc_args );
 
 		$assoc_args['slug'] = $theme_slug;
 		$assoc_args['theme_function_safe'] = str_replace( '-', '_', $assoc_args['slug'] );
