@@ -9,7 +9,64 @@ Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contr
 
 ## Using
 
+~~~
+wp scaffold book-theme <slug> [--theme_name=<title>] [--description=<description>] [--uri=<uri>] [--author=<author>] [--author_uri=<author_uri>] [--license=<license>] [--textdomain=<textdomain>] [--version=<version>] [--dir=<dir>] [--activate] [--enable-network] [--force]
+~~~
 
+Default behavior is to create the following files:
+- functions.php
+- .gitignore, .editorconfig and .scss-lint.yml
+- README.md
+
+Unless specified with `--dir=<dir>`, the theme is placed in the themes
+directory.
+
+**OPTIONS**
+
+	<slug>
+		Slug for the new theme.
+
+	[--theme_name=<title>]
+		What to put in the 'Theme Name:' header in 'style.css'. Defaults to <slug>.
+
+	[--description=<description>]
+		Human-readable description for the theme.
+
+	[--uri=<uri>]
+		What to put in the 'Theme URI:' header in 'style.css'.
+
+	[--author=<author>]
+		What to put in the 'Author:' header in 'style.css'.
+
+	[--author_uri=<author_uri>]
+		What to put in the 'Author URI:' header in 'style.css'.
+
+	[--license=<license>]
+		What to put in the 'License:' header in 'style.css'.
+		---
+		default: GPL 2.0+
+		---
+
+	[--textdomain=<textdomain>]
+		Text domain for the theme. Defaults to <slug>.
+
+	[--version=<version>]
+		Version for the theme.
+		---
+		default: 1.0
+		---
+
+	[--dir=<dir>]
+		Specify a destination directory for the command. Defaults to the themes directory.
+
+	[--activate]
+		Activate the newly created book theme.
+
+	[--enable-network]
+		Enable the newly created book theme for the entire network.
+
+	[--force]
+		Overwrite files that already exist.
 
 ## Installing
 
@@ -47,5 +104,6 @@ Once you've decided to commit the time to seeing your pull request through, plea
 2. Submit your pull request early for feedback.
 3. Include functional tests with your changes. [Read the WP-CLI documentation](https://wp-cli.org/docs/pull-requests/#functional-tests) for an introduction.
 4. Follow the [WordPress Coding Standards](http://make.wordpress.org/core/handbook/coding-standards/).
+
 
 *This README.md is generated dynamically from the project's codebase using `wp scaffold package-readme` ([doc](https://github.com/wp-cli/scaffold-package-command#wp-scaffold-package-readme)). To suggest changes, please submit a pull request against the corresponding part of the codebase.*

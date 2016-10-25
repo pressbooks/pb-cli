@@ -12,5 +12,10 @@
     "require": {},
     "require-dev": {
         "behat/behat": "~2.5"
+    },
+    "extra": {
+        "commands": [
+            "scaffold book-theme"
+        ]
     }
 }
