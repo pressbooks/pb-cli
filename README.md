@@ -3,7 +3,7 @@ pressbooks/pb-cli
 
 A suite of wp-cli commands for Pressbooks.
 
-[![Build Status](https://travis-ci.org/pressbooks/pb-cli.svg?branch=master)](https://travis-ci.org/pressbooks/pb-cli) [![Packagist](https://img.shields.io/packgist/v/pressbooks/pb-cli.svg)](https://packagist.org/packages/pressbooks/pb-cli/)
+[![Build Status](https://travis-ci.org/pressbooks/pb-cli.svg?branch=master)](https://travis-ci.org/pressbooks/pb-cli) [![Packagist](https://img.shields.io/packagist/v/pressbooks/pb-cli.svg)](https://packagist.org/packages/pressbooks/pb-cli/)
 
 Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing)
 
