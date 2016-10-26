@@ -115,6 +115,8 @@ class ScaffoldBookThemeCommand {
 			"{$theme_dir}/.gitignore"																		=> file_get_contents( "{$template_path}/.gitignore" ),
 			"{$theme_dir}/.editorconfig"																=> file_get_contents( "{$template_path}/.editorconfig" ),
 			"{$theme_dir}/.scss-lint.yml"																=> file_get_contents( "{$template_path}/.scss-lint.yml" ),
+			"{$theme_dir}/assets/images/.gitkeep"												=> file_get_contents( "{$template_path}/assets/images/.gitkeep" ),
+			"{$theme_dir}/assets/scripts/.gitkeep"											=> file_get_contents( "{$template_path}/assets/scripts/.gitkeep" ),
 			"{$theme_dir}/assets/styles/components/_colors.scss"				=> file_get_contents( "{$template_path}/assets/styles/components/_colors.scss" ),
 			"{$theme_dir}/assets/styles/components/_elements.scss"			=> file_get_contents( "{$template_path}/assets/styles/components/_elements.scss" ),
 			"{$theme_dir}/assets/styles/components/_accessibility.scss"	=> file_get_contents( "{$template_path}/assets/styles/components/_accessibility.scss" ),
