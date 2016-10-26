@@ -5,7 +5,7 @@
     "homepage": "https://github.com/pressbooks/pb-cli/",
     "license": "GPL 2.0+",
     "authors": [],
-    "minimum-stability": "dev",
+    "version": "1.0.0",
     "autoload": {
         "files": [ "command.php" ]
     },
