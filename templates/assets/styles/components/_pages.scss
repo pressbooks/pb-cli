@@ -1,0 +1,11 @@
+// Pages
+
+// Override variables above this line, using the !default flag to allow further overrides.
+@import 'variables/pages';
+
+// Add custom SCSS below these imports and includes.
+@import 'components/pages/titles';
+@import 'components/pages/parts';
+@import 'components/pages/front-matter';
+@import 'components/pages/chapters';
+@import 'components/pages/back-matter';
