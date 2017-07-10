@@ -14,7 +14,8 @@
     },
     "extra": {
         "commands": [
-            "scaffold book-theme"
+            "scaffold book-theme",
+            "pb issue-template"
         ]
     }
 }
