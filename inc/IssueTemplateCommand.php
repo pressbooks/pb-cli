@@ -30,7 +30,7 @@ class IssueTemplateCommand {
 	 *
 	 * @when after_wp_load
 	 */
-	public function scaffold_issue_template( $args, $assoc_args ) {
+	public function generate_issue_template( $args, $assoc_args ) {
 		$slug = $args[0];
 		$assoc_args = array_merge( [
 
