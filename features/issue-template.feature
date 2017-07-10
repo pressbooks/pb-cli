@@ -5,5 +5,5 @@ Feature: Scaffold issue template.
 		Given I run `wp theme path`
 		And save STDOUT as {THEME_DIR}
 		When I run `wp scaffold _s test-theme`
-		When I run `wp pb issue-template`
+		When I run `wp pb issue-template test-theme --type=theme --owner=pressbooks`
 		And the {THEME_DIR}/test-theme/ISSUE_TEMPLATE.md file should exist
