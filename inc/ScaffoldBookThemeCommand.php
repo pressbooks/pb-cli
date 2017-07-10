@@ -13,7 +13,7 @@ class ScaffoldBookThemeCommand {
 	 *
 	 * Default behavior is to create the following files:
 	 * - functions.php
-	 * - .gitignore, .editorconfig and .scss-lint.yml
+	 * - .gitignore, .editorconfig, package.json, composer.json, composer.lock, yarn.lock
 	 * - README.md
 	 *
 	 * Unless specified with `--dir=<dir>`, the theme is placed in the themes
