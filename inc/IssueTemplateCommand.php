@@ -32,9 +32,7 @@ class IssueTemplateCommand {
 	 */
 	public function generate_issue_template( $args, $assoc_args ) {
 		$slug = $args[0];
-		$assoc_args = array_merge( [
-
-		], $assoc_args );
+		$assoc_args = array_merge( [], $assoc_args );
 
 		$assoc_args['slug'] = $slug;
 		$assoc_args['slug_function_safe'] = str_replace( '-', '_', $assoc_args['slug'] );
@@ -50,10 +48,11 @@ class IssueTemplateCommand {
 		}
 
 		$force = Utils\get_flag_value( $assoc_args, 'force' );
+		$type = $assoc_args['type'];
 		$package_root = dirname( dirname( __FILE__ ) );
-		$template_path = $package_root . '/templates/scaffold-issue-template/';
+		$template_path = $package_root . '/templates/issue-template';
 		$files_written = $this->create_files( array(
-			"{$dir}/.github/ISSUE_TEMPLATE.md"  => Utils\mustache_render( "{$template_path}/${$type}.mustache", $assoc_args ),
+			"{$dir}/.github/ISSUE_TEMPLATE.md"  => Utils\mustache_render( "{$template_path}/{$assoc_args['type']}.mustache", $assoc_args ),
 		), $force );
 
 		if ( empty( $files_written ) ) {
