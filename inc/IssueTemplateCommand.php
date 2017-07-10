@@ -35,7 +35,6 @@ class IssueTemplateCommand {
 		$assoc_args = array_merge( [], $assoc_args );
 
 		$assoc_args['slug'] = $slug;
-		$assoc_args['slug_function_safe'] = str_replace( '-', '_', $assoc_args['slug'] );
 
 		if ( ! empty( $assoc_args['dir'] ) ) {
 			$dir = $assoc_args['dir'];
