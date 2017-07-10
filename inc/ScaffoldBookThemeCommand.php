@@ -68,7 +68,7 @@ class ScaffoldBookThemeCommand {
 	 *
 	 * @when after_wp_load
 	 */
-	public function theme( $args, $assoc_args ) {
+	public function scaffold_book_theme( $args, $assoc_args ) {
 		$theme_slug = $args[0];
 		$assoc_args = array_merge( [
 			'description' => '',
@@ -105,8 +105,9 @@ class ScaffoldBookThemeCommand {
 		$enable_network = Utils\get_flag_value( $assoc_args, 'enable-network' );
 		$force = Utils\get_flag_value( $assoc_args, 'force' );
 		$package_root = dirname( dirname( __FILE__ ) );
-		$template_path = $package_root . '/templates/';
+		$template_path = $package_root . '/templates/scaffold-book-theme';
 		$files_written = $this->create_files( array(
+			"{$theme_dir}/.github/ISSUE_TEMPLATE.md"  => Utils\mustache_render( "{$template_path}/.github/ISSUE_TEMPLATE.mustache", $assoc_args ),
 			"{$theme_dir}/functions.php"  => Utils\mustache_render( "{$template_path}/functions.mustache", $assoc_args ),
 			"{$theme_dir}/style.css"			=> Utils\mustache_render( "{$template_path}/style.mustache", $assoc_args ),
 			"{$theme_dir}/assets/styles/epub/style.scss"		=> Utils\mustache_render( "{$template_path}/assets/styles/epub/style.mustache", $assoc_args ),
@@ -166,7 +167,7 @@ class ScaffoldBookThemeCommand {
 		if ( ! file_exists( $filename ) ) {
 			return true;
 		}
-		WP_CLI::warning( 'File already exists' );
+		WP_CLI::warning( 'File already exists!' );
 		WP_CLI::log( $filename );
 		if ( ! $force ) {
 			do {
@@ -178,7 +179,7 @@ class ScaffoldBookThemeCommand {
 			} while ( ! in_array( $answer, array( 's', 'r' ) ) );
 			$should_write_file = 'r' === $answer;
 		}
-		$outcome = $should_write_file ? 'Replacing' : 'Skipping';
+		$outcome = $should_write_file ? 'Replacing.' : 'Skipping.';
 		WP_CLI::log( $outcome . PHP_EOL );
 		return $should_write_file;
 	}
