@@ -9,6 +9,12 @@ Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contr
 
 ## Using
 
+This package implements the following commands:
+
+### wp scaffold book-theme
+
+Generate the files needed for a Pressbooks book theme.
+
 ~~~
 wp scaffold book-theme <slug> [--theme_name=<title>] [--description=<description>] [--uri=<uri>] [--author=<author>] [--author_uri=<author_uri>] [--license=<license>] [--textdomain=<textdomain>] [--version=<version>] [--dir=<dir>] [--activate] [--enable-network] [--force]
 ~~~
@@ -64,6 +70,33 @@ directory.
 
 	[--enable-network]
 		Enable the newly created book theme for the entire network.
+
+	[--force]
+		Overwrite files that already exist.
+
+
+
+### wp pb issue-template
+
+Generate an issue template for a Pressbooks theme or plugin, placing it in .github/ISSUE_TEMPLATE.md.
+
+~~~
+wp pb issue-template <slug> --type=<type> --owner=<owner> [--dir=<dir>] [--force]
+~~~
+
+**OPTIONS**
+
+	<slug>
+		Slug for the theme or plugin (e.g. pressbooks, pressbooks-book).
+
+	--type=<type>
+		The type of repo for which we're generating an issue template. Must be `theme` or `plugin`.
+
+	--owner=<owner>
+		The GitHub username of this repo's owner (e.g. pressbooks).
+
+	[--dir=<dir>]
+		Specify a destination directory for the command. Defaults to the theme or plugin's directory.
 
 	[--force]
 		Overwrite files that already exist.
