@@ -3,7 +3,7 @@
     "description": "A suite of wp-cli commands for Pressbooks.",
     "type": "wp-cli-package",
     "homepage": "https://github.com/pressbooks/pb-cli/",
-    "license": "GPL 2.0+",
+    "license": "gpl-2.0-or-later",
     "authors": [],
     "autoload": {
         "files": [ "command.php" ]
