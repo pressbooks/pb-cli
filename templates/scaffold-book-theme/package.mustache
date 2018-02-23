@@ -1,47 +1,31 @@
 {
-  "name": "{{theme_function_safe}}",
+  "name": "@{{vendor}}/{{slug}}",
   {{#has_author}}"author": "{{author}}",{{/has_author}}
-  "license": "{{license}}",
+  {{#has_description}}"description": "{{description}}",{{/has_description}}
+  {{#has_spdx_license}}"license": "{{spdx_license}}",{{/has_spdx_license}}
   "engines": {
     "node": ">= 6.9.4"
   },
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/{{github_account}}/{{github_repo}}.git"
+	},
   "dependencies": {},
   "devDependencies": {
-    "stylelint": "^7.12.0",
-    "stylelint-config-standard": "^16.0.0"
+    "pressbooks-build-tools": "^0.11.0"
   },
   "scripts": {
-    "lint": "node_modules/stylelint/bin/stylelint.js '**/*.scss' --syntax scss"
+    "lint": "npm run -s lint:scripts && npm run -s lint:styles",
+		"lint:scripts":
+			"node_modules/eslint/bin/eslint.js \"assets/scripts/**/*.js\"",
+		"lint:styles":
+			"node_modules/stylelint/bin/stylelint.js \"assets/styles/**/*.scss\" --syntax scss",
+		"test": "npm run -s lint"
   },
+	"eslintConfig": {
+		"extends": "./node_modules/pressbooks-build-tools/config/eslint.js"
+	},
 	"stylelint": {
-		"extends": "stylelint-config-standard",
-		"rules": {
-			"indentation": 2,
-			"property-no-unknown": [
-				true,
-				{
-					"ignoreProperties": [
-						"footnote-style-position",
-						"hyphenate-before",
-						"hyphenate-after",
-						"hyphenate-lines",
-						"margin-inside",
-						"margin-outside",
-						"prince-bookmark-level",
-						"prince-footnote-policy",
-						"prince-image-resolution",
-						"prince-page-group"
-					]
-				}
-			],
-			"selector-pseudo-element-no-unknown": [
-				true,
-				{
-					"ignorePseudoElements": [
-						"footnote-call"
-					]
-				}
-			]
-		}
+		"extends": "./node_modules/pressbooks-build-tools/config/stylelint.js"
 	}
 }

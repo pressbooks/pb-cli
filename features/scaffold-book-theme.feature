@@ -4,9 +4,10 @@ Feature: Scaffold book themes.
 		Given a WP install
 		Given I run `wp theme path`
 		And save STDOUT as {THEME_DIR}
-		When I run `wp scaffold book-theme pressbooks-mcluhan`
+		When I run `wp scaffold book-theme pressbooks-mcluhan pressbooks`
 		Then STDOUT should contain:
 			"""
 			Created theme Pressbooks-mcluhan.
 			"""
 		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should exist
+		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should contain "Github Theme URI: pressbooks/pressbooks-mcluhan"
