@@ -111,7 +111,7 @@ class ScaffoldBookThemeCommand {
 		}
 
 		if ( empty( $assoc_args['github_repo'] ) ) {
-			$assoc_args['github_repo'] = $theme_repo;
+			$assoc_args['github_repo'] = $theme_slug;
 		}
 
 		if ( ! empty( $assoc_args['dir'] ) ) {
