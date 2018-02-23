@@ -7,7 +7,7 @@ Feature: Scaffold book themes.
 		When I run `wp scaffold book-theme nix pressbooks`
 		Then STDOUT should contain:
 			"""
-			Created theme Pressbooks-mcluhan.
+			Created theme Nix.
 			"""
 		And the {THEME_DIR}/nix/style.css file should exist
 		And the {THEME_DIR}/nix/style.css file should contain:
