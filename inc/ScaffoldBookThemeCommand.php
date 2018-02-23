@@ -2,7 +2,6 @@
 
 namespace Pressbooks_CLI;
 
-use Composer\Spdx\SpdxLicenses;
 use WP_CLI;
 use WP_CLI\Process;
 use WP_CLI\Utils;
@@ -80,8 +79,6 @@ class ScaffoldBookThemeCommand {
 	 * @when after_wp_load
 	 */
 	public function scaffold_book_theme( $args, $assoc_args ) {
-		$licenses = new SpdxLicenses();
-
 		$theme_slug = $args[0];
 		$theme_vendor = $args[1];
 		$assoc_args = array_merge( [
@@ -90,6 +87,7 @@ class ScaffoldBookThemeCommand {
 			'author' => '',
 			'author_uri'  => '',
 			'license' => 'GPL-2.0+',
+			'spdx_license' => 'gpl-2.0-or-later',
 			'version' => '1.0',
 			'dir' => '',
 			'github_account' => '',
@@ -114,11 +112,6 @@ class ScaffoldBookThemeCommand {
 
 		if ( empty( $assoc_args['github_repo'] ) ) {
 			$assoc_args['github_repo'] = $theme_repo;
-		}
-
-		$spdx_license = $licenses->getLicenseByIdentifier( $assoc_args['license'] );
-		if ( $spdx_license ) {
-			$assoc_args['spdx_license'] = $spdx_license;
 		}
 
 		if ( ! empty( $assoc_args['dir'] ) ) {
