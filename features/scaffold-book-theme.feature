@@ -10,4 +10,7 @@ Feature: Scaffold book themes.
 			Created theme Pressbooks-mcluhan.
 			"""
 		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should exist
-		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should contain "Github Theme URI: pressbooks/pressbooks-mcluhan"
+		And the {THEME_DIR}/pressbooks-mcluhan/style.css file should contain:
+			"""
+			Github Theme URI: pressbooks/pressbooks-mcluhan
+			"""
