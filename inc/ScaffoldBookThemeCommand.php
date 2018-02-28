@@ -3,16 +3,11 @@
 namespace Pressbooks_CLI;
 
 use WP_CLI;
+use WP_CLI\Process;
 use WP_CLI\Utils;
 
-if ( ! class_exists( '\Scaffold_Command' ) ) {
-	$include_scaffold_command = __DIR__ . '/../vendor/wp-cli/scaffold-command/src/Scaffold_Command.php';
-	if ( file_exists( $include_scaffold_command ) ) {
-		include_once( $include_scaffold_command );
-	}
-}
 
-class ScaffoldBookThemeCommand extends \Scaffold_Command {
+class ScaffoldBookThemeCommand {
 
 	/**
 	 * Generate the files needed for a Pressbooks book theme.
@@ -188,5 +183,46 @@ class ScaffoldBookThemeCommand extends \Scaffold_Command {
 			$line = $whitespace . $line;
 		}
 		return implode( $lines, "\n" );
+	}
+
+	private function prompt_if_files_will_be_overwritten( $filename, $force ) {
+		$should_write_file = true;
+		if ( ! file_exists( $filename ) ) {
+			return true;
+		}
+		WP_CLI::warning( 'File already exists!' );
+		WP_CLI::log( $filename );
+		if ( ! $force ) {
+			do {
+				$answer = \cli\prompt(
+					'Skip this file, or replace it with scaffolding?',
+					$default = false,
+					$marker = '[s/r]: '
+				);
+			} while ( ! in_array( $answer, array( 's', 'r' ) ) );
+			$should_write_file = 'r' === $answer;
+		}
+		$outcome = $should_write_file ? 'Replacing.' : 'Skipping.';
+		WP_CLI::log( $outcome . PHP_EOL );
+		return $should_write_file;
+	}
+
+	private function create_files( $files_and_contents, $force ) {
+		$wrote_files = array();
+		foreach ( $files_and_contents as $filename => $contents ) {
+			$should_write_file = $this->prompt_if_files_will_be_overwritten( $filename, $force );
+			if ( ! $should_write_file ) {
+				continue;
+			}
+			if ( ! is_dir( dirname( $filename ) ) ) {
+				Process::create( Utils\esc_cmd( 'mkdir -p %s', dirname( $filename ) ) )->run();
+			}
+			if ( ! file_put_contents( $filename, $contents ) ) {
+				WP_CLI::error( "Error creating file: $filename" );
+			} elseif ( $should_write_file ) {
+				$wrote_files[] = $filename;
+			}
+		}
+		return $wrote_files;
 	}
 }
