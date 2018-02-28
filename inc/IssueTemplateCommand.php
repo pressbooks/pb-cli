@@ -6,7 +6,7 @@ use WP_CLI;
 use WP_CLI\Process;
 use WP_CLI\Utils;
 
-class IssueTemplateCommand {
+class IssueTemplateCommand extends PB_CLI_Command {
 
 	/**
 	 * Generate an issue template for a Pressbooks theme or plugin, placing it in .github/ISSUE_TEMPLATE.md.
