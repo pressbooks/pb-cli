@@ -5,6 +5,12 @@ namespace Pressbooks_CLI;
 use WP_CLI;
 use WP_CLI\Utils;
 
+if ( ! class_exists( '\Scaffold_Command' ) ) {
+	$include_scaffold_command = __DIR__ . '/../vendor/wp-cli/scaffold-command/src/Scaffold_Command.php';
+	if ( file_exists( $include_scaffold_command ) ) {
+		include_once( $include_scaffold_command );
+	}
+}
 
 class ScaffoldBookThemeCommand extends \Scaffold_Command {
 
