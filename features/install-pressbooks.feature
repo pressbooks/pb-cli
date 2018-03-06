@@ -24,8 +24,3 @@ Feature: Test that Pressbooks installs.
 			"""
 			pressbooks-aldine
 			"""
-		# When I run `wp eval 'echo PB_BOOK_THEME;'`
-		# Then STDOUT should contain:
-		# 	"""
-		# 	pressbooks-book
-		# 	"""
