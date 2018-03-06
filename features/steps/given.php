@@ -155,3 +155,19 @@ $steps->Given('/^a misconfigured WP_CONTENT_DIR constant directory$/',
 		file_put_contents( $wp_config_path, $wp_config_code );
 	}
 );
+
+$steps->Given( '/^a Pressbooks (subdirectory|subdomain)?\s?install$/',
+	function ( $world, $type = 'subdirectory' ) {
+		$world->install_wp();
+		$subdomains = ! empty( $type ) && 'subdomain' === $type ? 1 : 0;
+		$world->proc( 'wp core install-network', array( 'title' => 'WP CLI Network', 'subdomains' => $subdomains ) )->run_check();
+		$world->proc( 'wp plugin install https://github.com/pressbooks/pressbooks/releases/download/5.0.1/pressbooks-5.0.1.zip' )->run_check();
+		$world->proc( 'wp theme install https://github.com/pressbooks/pressbooks-book/releases/download/2.0.1/pressbooks-book-2.0.1.zip' )->run_check();
+		$world->proc( 'wp theme install https://github.com/pressbooks/pressbooks-aldine/releases/download/1.0.1/pressbooks-aldine-1.0.1.zip' )->run_check();
+		@mkdir( 'wp-content/mu-plugins' );
+		$world->move_files( 'wp-content/plugins/pressbooks/hm-autoloader.php', 'wp-content/mu-plugins/hm-autoloader.php' );
+		// $world->proc( 'wp plugin activate pressbooks --network' )->run_check();
+		// $world->proc( 'wp theme enable pressbooks-book --network' )->run_check();
+		// $world->proc( 'wp theme activate pressbooks-aldine' )->run_check();
+	}
+);
