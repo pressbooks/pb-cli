@@ -161,13 +161,17 @@ $steps->Given( '/^a Pressbooks (subdirectory|subdomain)?\s?install$/',
 		$world->install_wp();
 		$subdomains = ! empty( $type ) && 'subdomain' === $type ? 1 : 0;
 		$world->proc( 'wp core install-network', array( 'title' => 'WP CLI Network', 'subdomains' => $subdomains ) )->run_check();
-		$world->proc( 'composer require pressbooks/pressbooks:dev-dev' )->run_check();
-		$world->proc( 'composer require pressbooks/pressbooks-book:dev-dev' )->run_check();
-		$world->proc( 'composer require pressbooks/pressbooks-aldine:dev-dev' )->run_check();
+		$world->proc( 'git clone --depth=1 https://github.com/pressbooks/pressbooks.git wp-content/plugins/pressbooks' )->run_check();
+		$world->proc( 'git clone --depth=1 https://github.com/pressbooks/pressbooks-book.git wp-content/themes/pressbooks-book' )->run_check();
+		$world->proc( 'git clone --depth=1 https://github.com/pressbooks/pressbooks-aldine.git wp-content/themes/pressbooks-aldine' )->run_check();
+		$world->proc( 'cd wp-content/plugins/pressbooks && composer install --no-dev --optimize-autoloader && cd ../../../' )->run_check();
+		$world->proc( 'cd wp-content/themes/pressbooks-aldine && composer install --no-dev --optimize-autoloader && cd ../../../' )->run_check();
+		$world->proc( 'cd wp-content/themes/pressbooks-book && composer install --no-dev --optimize-autoloader && cd ../../../' )->run_check();
 		@mkdir( 'wp-content/mu-plugins' );
 		$world->move_files( 'wp-content/plugins/pressbooks/hm-autoloader.php', 'wp-content/mu-plugins/hm-autoloader.php' );
-		// $world->proc( 'wp plugin activate pressbooks --network' )->run_check();
-		// $world->proc( 'wp theme enable pressbooks-book --network' )->run_check();
-		// $world->proc( 'wp theme activate pressbooks-aldine' )->run_check();
+		$world->proc( 'wp plugin activate pressbooks --network' )->run_check();
+		$world->proc( 'wp theme enable pressbooks-book --network' )->run_check();
+		$world->proc( 'wp theme activate pressbooks-aldine' )->run_check();
+		$world->proc( 'wp site create --slug=standardtest --title="Standard Test Book"' )->run_check();
 	}
 );

@@ -2,9 +2,11 @@ Feature: Scaffold book themes.
 
 	Scenario: Scaffold starter code for a book theme
 		Given a WP install
-		Given I run `wp theme path`
+
+		When I run `wp theme path`
 		And save STDOUT as {THEME_DIR}
-		When I run `wp scaffold book-theme nix pressbooks`
+		And I run `wp scaffold book-theme nix pressbooks`
+
 		Then STDOUT should contain:
 			"""
 			Created theme Nix.
