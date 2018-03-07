@@ -10,7 +10,12 @@ use WP_CLI;
 class ThemeLockCommand extends PB_CLI_Command {
 
 	/**
-	 * Lock Theme
+	 * Lock a book's theme.
+	 *
+	 * ## OPTIONS
+	 *
+	 * --url=<url>
+	 * : The URL of the target book.
 	 *
 	 * @when after_wp_load
 	 *
@@ -42,7 +47,12 @@ class ThemeLockCommand extends PB_CLI_Command {
 	}
 
 	/**
-	 * Unlock Theme
+	 * Unlock a book's theme.
+	 *
+	 * ## OPTIONS
+	 *
+	 * --url=<url>
+	 * : The URL of the target book.
 	 *
 	 * @when after_wp_load
 	 *

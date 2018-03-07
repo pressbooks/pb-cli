@@ -110,6 +110,36 @@ wp pb issue-template <slug> --type=<type> --owner=<owner> [--dir=<dir>] [--force
 	[--force]
 		Overwrite files that already exist.
 
+
+
+### wp pb theme lock
+
+Lock a book's theme.
+
+~~~
+wp pb theme lock --url=<url>
+~~~
+
+**OPTIONS**
+
+	--url=<url>
+		The URL of the target book.
+
+
+
+### wp pb theme unlock
+
+Unlock a book's theme.
+
+~~~
+wp pb theme unlock --url=<url>
+~~~
+
+**OPTIONS**
+
+	--url=<url>
+		The URL of the target book.
+
 ## Installing
 
 Installing this package requires WP-CLI v1.3.0 or greater. Update to the latest stable release with `wp cli update`.

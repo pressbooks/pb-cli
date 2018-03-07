@@ -21,7 +21,7 @@ Feature: Test that themes can be locked and unlocked.
 
 		When I run `wp pb theme lock --url={BOOK_URL}`
 		And I run `wp pb theme lock --url={BOOK_URL}`
-		Then STDOUT should contain:
+		Then STDERR should contain:
 			"""
 			Theme already locked
 			"""
@@ -33,7 +33,7 @@ Feature: Test that themes can be locked and unlocked.
 		And save STDOUT as {BOOK_URL}
 
 		When I run `wp pb theme unlock --url={BOOK_URL}`
-		Then STDOUT should contain:
+		Then STDERR should contain:
 			"""
 			Theme already unlocked
 			"""
