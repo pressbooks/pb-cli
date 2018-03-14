@@ -21,6 +21,8 @@ class ThemeLockCommand extends PB_CLI_Command {
 	 *
 	 * @param array $args
 	 * @param array $assoc_args
+	 *
+	 * @throws \WP_CLI\ExitException
 	 */
 	public function lock( $args, $assoc_args ) {
 		if ( ! Book::isBook() ) {

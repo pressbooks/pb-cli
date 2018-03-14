@@ -21,6 +21,6 @@
     "wp-cli/wp-cli": "^1.5"
   },
   "extra": {
-    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock"]
+    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone"]
   }
 }

@@ -5,7 +5,9 @@ if ( ! class_exists( 'WP_CLI' ) ) {
 }
 
 if ( ! class_exists( 'Pressbooks_CLI\IssueTemplateCommand' ) ) {
-	require_once __DIR__ . '/inc/PBCliCommand.php';
+
+	require_once __DIR__ . '/inc/PBCliCommand.php'; // Abstract class must be required first
+	require_once __DIR__ . '/inc/CloneCommand.php';
 	require_once __DIR__ . '/inc/IssueTemplateCommand.php';
 	require_once __DIR__ . '/inc/ScaffoldBookThemeCommand.php';
 	require_once __DIR__ . '/inc/ThemeLockCommand.php';
@@ -13,5 +15,6 @@ if ( ! class_exists( 'Pressbooks_CLI\IssueTemplateCommand' ) ) {
 	WP_CLI::add_command( 'pb issue-template', [ 'Pressbooks_CLI\IssueTemplateCommand', 'generate_issue_template' ] );
 	WP_CLI::add_command( 'pb theme lock', [ 'Pressbooks_CLI\ThemeLockCommand', 'lock' ] );
 	WP_CLI::add_command( 'pb theme unlock', [ 'Pressbooks_CLI\ThemeLockCommand', 'unlock' ] );
+	WP_CLI::add_command( 'pb clone', [ 'Pressbooks_CLI\CloneCommand', 'clone' ] );
 	WP_CLI::add_command( 'scaffold book-theme', [ 'Pressbooks_CLI\ScaffoldBookThemeCommand', 'scaffold_book_theme' ] );
 }
