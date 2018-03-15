@@ -66,7 +66,7 @@ class CloneCommand extends PB_CLI_Command {
 		if ( ! $success ) {
 			WP_CLI::error( 'Cloning failed!' );
 		} else {
-			WP_CLI::log( 'Cloning succeeded!' );
+			WP_CLI::success( 'Cloning succeeded!' );
 		}
 	}
 
