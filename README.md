@@ -139,6 +139,26 @@ wp pb theme unlock --url=<url>
 
 	--url=<url>
 		The URL of the target book.
+		
+### wp pb clone
+
+Clone a book.
+
+~~~
+wp pb clone <source> <dest> --user=<user>
+~~~
+
+**OPTIONS**
+		 
+    <source>
+		URL
+	 
+    <destination>
+		Book slug on the current network
+	 
+    --user=<user>
+		sets request to a specific WordPress user		
+		
 
 ## Installing
 
