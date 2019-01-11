@@ -17,7 +17,7 @@
     "php": ">=7.1"
   },
   "require-dev": {
-    "behat/behat": "^3.5",
+    "behat/behat": "~3.5",
     "wp-cli/wp-cli": "^2.1"
   },
   "extra": {

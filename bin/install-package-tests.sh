@@ -26,7 +26,7 @@ download_behat() {
 	cd $PACKAGE_DIR
 	download https://getcomposer.org/installer installer
 	php installer
-	php composer.phar require --dev behat/behat='~2.5'
+	php composer.phar require --dev behat/behat='~3.5'
 
 }
 
