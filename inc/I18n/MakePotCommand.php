@@ -1,17 +1,13 @@
 <?php
 
-namespace Pressbooks_CLI;
+namespace Pressbooks_CLI\I18n;
 
 use WP_CLI;
 
 class MakePotCommand extends WP_CLI\I18n\MakePotCommand {
 
 	/**
-	 * Creates a POT file and stores it on disk.
-	 *
-	 * @throws WP_CLI\ExitException
-	 *
-	 * @return \Gettext\Translations A Translation set.
+	 * {@inheritdoc}
 	 */
 	protected function extract_strings() {
 
@@ -19,7 +15,7 @@ class MakePotCommand extends WP_CLI\I18n\MakePotCommand {
 		$this->exclude[] = '*.blade.php';
 		$translations = parent::extract_strings();
 
-		WP_CLI::log( 'Extracting .blade.php templates' );
+		WP_CLI::log( 'Extracting strings from .blade.php templates...' );
 
 		try {
 			BladeCodeExtractor::fromDirectory( $this->source, $translations, [

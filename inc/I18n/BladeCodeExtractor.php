@@ -1,6 +1,6 @@
 <?php
 
-namespace Pressbooks_CLI;
+namespace Pressbooks_CLI\I18n;
 
 use Gettext\Extractors\PhpCode;
 use Gettext\Translations;
@@ -15,9 +15,11 @@ final class BladeCodeExtractor extends PhpCode {
 	 */
 	public static function fromString( $string, Translations $translations, array $options = [] ) {
 
+		// Use the same options as \WP_CLI\I18n\PhpCodeExtractor
 		static::$options = PhpCodeExtractor::$options;
 		$options += static::$options;
 
+		// Pull in the BladeCompiler class, compile into regular PHP and then provide it to the regular parser.
 		/** @var \Illuminate\View\Compilers\BladeCompiler $compiler */
 		$compiler = \Pressbooks\Container::get( 'Blade' )->compiler();
 		$string = $compiler->compileString( $string );

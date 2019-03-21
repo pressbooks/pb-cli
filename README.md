@@ -160,10 +160,19 @@ wp pb clone <source> <destination> --user=<user>
 
 	--user=<user>
 		sets request to a specific WordPress user
+		
+		
+### wp pb make-pot
+
+Create a POT file for a WordPress project.
+
+Exactly the same as: https://github.com/wp-cli/i18n-command#wp-i18n-make-pot
+
+Adds support for `.blade.php` templates.	
 
 ## Installing
 
-Installing this package requires WP-CLI v1.3.0 or greater. Update to the latest stable release with `wp cli update`.
+Installing this package requires WP-CLI v2.1.0 or greater. Update to the latest stable release with `wp cli update`.
 
 Once you've done so, you can install this package with:
 
