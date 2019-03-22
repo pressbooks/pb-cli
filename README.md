@@ -174,6 +174,7 @@ Run the following command in the plugin directory from your development environm
 
 Same options as: https://github.com/wp-cli/i18n-command#wp-i18n-make-pot
 
+
 ## Installing
 
 Installing this package requires WP-CLI v2.1.0 or greater. Update to the latest stable release with `wp cli update`.
@@ -181,4 +182,11 @@ Installing this package requires WP-CLI v2.1.0 or greater. Update to the latest 
 Once you've done so, you can install this package with:
 
     wp package install git@github.com:pressbooks/pb-cli.git
+
+    
+## Upgrade Notice 
+
+
+### 2.0.0 
+* PB-CLI requires Pressbooks >= 5.7.0    
 

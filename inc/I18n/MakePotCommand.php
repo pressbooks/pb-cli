@@ -27,7 +27,8 @@ class MakePotCommand extends WP_CLI\I18n\MakePotCommand {
 		WP_CLI::log( 'Extracting strings from .blade.php templates...' );
 
 		try {
-			BladeCodeExtractor::fromDirectory( $this->source, $translations, [
+			// TODO: We're suppressing PHP Warnings until this PR is approved: https://github.com/wp-cli/i18n-command/pull/149
+			@BladeCodeExtractor::fromDirectory( $this->source, $translations, [
 				// Extract 'Template Name' headers in theme files.
 				'wpExtractTemplates' => isset( $this->main_file_data['Theme Name'] ),
 				'include'            => [ '*.blade.php' ],
