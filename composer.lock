@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf221a77e2bf3e4eeea08e5c1fe59ff9",
+    "content-hash": "382d9458b8c68c2e8598eca4f81ad9e2",
     "packages": [],
     "packages-dev": [
         {
@@ -1115,16 +1115,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "dev-121-plural-forms",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "3d9cb9568a76acf43d5759763a64184c4d88fad8"
+                "reference": "e4778a08a9a6465984b157c1b0b7a828b8cb9069"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/3d9cb9568a76acf43d5759763a64184c4d88fad8",
-                "reference": "3d9cb9568a76acf43d5759763a64184c4d88fad8",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/e4778a08a9a6465984b157c1b0b7a828b8cb9069",
+                "reference": "e4778a08a9a6465984b157c1b0b7a828b8cb9069",
                 "shasum": ""
             },
             "require": {
@@ -1168,7 +1168,7 @@
             ],
             "description": "Provides internationalization tools for WordPress projects.",
             "homepage": "https://github.com/wp-cli/i18n-command",
-            "time": "2019-02-19T18:17:58+00:00"
+            "time": "2019-03-22T10:34:58+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
