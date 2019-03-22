@@ -158,6 +158,7 @@ $steps->Given('/^a misconfigured WP_CONTENT_DIR constant directory$/',
 
 $steps->Given( '/^a Pressbooks (subdirectory|subdomain)?\s?install$/',
 	function ( $world, $type = 'subdirectory' ) {
+		/** @var $world FeatureContext */
 		$world->install_wp();
 		$subdomains = ! empty( $type ) && 'subdomain' === $type ? 1 : 0;
 		$world->proc( 'wp core install-network', array( 'title' => 'WP CLI Network', 'subdomains' => $subdomains ) )->run_check();

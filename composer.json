@@ -6,8 +6,12 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "autoload": {
+    "psr-4": {
+      "Pressbooks_CLI\\": "inc/"
+    },
     "files": ["command.php"]
   },
+  "minimum-stability": "dev",
   "config": {
     "platform": {
       "php": "7.1"
@@ -15,12 +19,13 @@
   },
   "require": {
     "php": ">=7.1"
-  },
+    },
   "require-dev": {
     "behat/behat": "~2.5",
-    "wp-cli/wp-cli": "^2.1"
+    "wp-cli/wp-cli": "^2",
+    "wp-cli/i18n-command": "dev-121-plural-forms"
   },
   "extra": {
-    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone"]
+    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb make-pot"]
   }
 }

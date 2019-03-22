@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82556b9fce7f145962a33e3605f38a6e",
+    "content-hash": "cf221a77e2bf3e4eeea08e5c1fe59ff9",
     "packages": [],
     "packages-dev": [
         {
             "name": "behat/behat",
-            "version": "v2.5.5",
+            "version": "2.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "c1e48826b84669c97a1efa78459aedfdcdcf2120"
+                "reference": "810008fdd1d4b2ec17f14c58cfdbf8fcb76a0022"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/c1e48826b84669c97a1efa78459aedfdcdcf2120",
-                "reference": "c1e48826b84669c97a1efa78459aedfdcdcf2120",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/810008fdd1d4b2ec17f14c58cfdbf8fcb76a0022",
+                "reference": "810008fdd1d4b2ec17f14c58cfdbf8fcb76a0022",
                 "shasum": ""
             },
             "require": {
@@ -67,20 +67,20 @@
                 "Behat",
                 "Symfony2"
             ],
-            "time": "2015-06-01T09:37:55+00:00"
+            "time": "2016-08-29T07:27:43+00:00"
         },
         {
             "name": "behat/gherkin",
-            "version": "v2.3.5",
+            "version": "2.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Gherkin.git",
-                "reference": "2b33963da5525400573560c173ab5c9c057e1852"
+                "reference": "c32e15d92e1a2ce399a1a1c5be7afd965176e86c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/2b33963da5525400573560c173ab5c9c057e1852",
-                "reference": "2b33963da5525400573560c173ab5c9c057e1852",
+                "url": "https://api.github.com/repos/Behat/Gherkin/zipball/c32e15d92e1a2ce399a1a1c5be7afd965176e86c",
+                "reference": "c32e15d92e1a2ce399a1a1c5be7afd965176e86c",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,175 @@
                 "Symfony2",
                 "parser"
             ],
-            "time": "2013-10-15T11:22:17+00:00"
+            "time": "2014-06-06T00:48:18+00:00"
+        },
+        {
+            "name": "gettext/gettext",
+            "version": "v4.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oscarotero/Gettext.git",
+                "reference": "93176b272d61fb58a9767be71c50d19149cb1e48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/Gettext/zipball/93176b272d61fb58a9767be71c50d19149cb1e48",
+                "reference": "93176b272d61fb58a9767be71c50d19149cb1e48",
+                "shasum": ""
+            },
+            "require": {
+                "gettext/languages": "^2.3",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/view": "*",
+                "phpunit/phpunit": "^4.8|^5.7|^6.5",
+                "squizlabs/php_codesniffer": "^3.0",
+                "symfony/yaml": "~2",
+                "twig/extensions": "*",
+                "twig/twig": "^1.31|^2.0"
+            },
+            "suggest": {
+                "illuminate/view": "Is necessary if you want to use the Blade extractor",
+                "symfony/yaml": "Is necessary if you want to use the Yaml extractor/generator",
+                "twig/extensions": "Is necessary if you want to use the Twig extractor",
+                "twig/twig": "Is necessary if you want to use the Twig extractor"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gettext\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP gettext manager",
+            "homepage": "https://github.com/oscarotero/Gettext",
+            "keywords": [
+                "JS",
+                "gettext",
+                "i18n",
+                "mo",
+                "po",
+                "translation"
+            ],
+            "time": "2019-01-12T18:40:56+00:00"
+        },
+        {
+            "name": "gettext/languages",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mlocati/cldr-to-gettext-plural-rules.git",
+                "reference": "78db2d17933f0765a102f368a6663f057162ddbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mlocati/cldr-to-gettext-plural-rules/zipball/78db2d17933f0765a102f368a6663f057162ddbd",
+                "reference": "78db2d17933f0765a102f368a6663f057162ddbd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4"
+            },
+            "bin": [
+                "bin/export-plural-rules",
+                "bin/export-plural-rules.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gettext\\Languages\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michele Locati",
+                    "email": "mlocati@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "gettext languages with plural rules",
+            "homepage": "https://github.com/mlocati/cldr-to-gettext-plural-rules",
+            "keywords": [
+                "cldr",
+                "i18n",
+                "internationalization",
+                "l10n",
+                "language",
+                "languages",
+                "localization",
+                "php",
+                "plural",
+                "plural rules",
+                "plurals",
+                "translate",
+                "translations",
+                "unicode"
+            ],
+            "time": "2018-11-13T22:06:07+00:00"
+        },
+        {
+            "name": "mck89/peast",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mck89/peast.git",
+                "reference": "d2679134887eb8ce97ee95f7e6d3538121c58416"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/d2679134887eb8ce97ee95f7e6d3538121c58416",
+                "reference": "d2679134887eb8ce97ee95f7e6d3538121c58416",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Peast\\": "lib/Peast/",
+                    "Peast\\test\\": "test/Peast/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Marchiò",
+                    "email": "marco.mm89@gmail.com"
+                }
+            ],
+            "description": "Peast is PHP library that generates AST for JavaScript code",
+            "time": "2019-01-16T13:20:50+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -178,16 +346,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +364,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -221,7 +389,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2018-11-21T13:42:00+00:00"
         },
         {
             "name": "ramsey/array_column",
@@ -320,7 +488,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -377,7 +545,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -438,7 +606,7 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v3.0.9",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
@@ -495,7 +663,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -558,7 +726,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -618,7 +786,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v3.0.9",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -667,7 +835,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -716,16 +884,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.10.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
+                "reference": "82ebae02209c21113908c229e9883c419720738a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
+                "reference": "82ebae02209c21113908c229e9883c419720738a",
                 "shasum": ""
             },
             "require": {
@@ -737,7 +905,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
@@ -759,7 +927,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -770,20 +938,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.10.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
+                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
-                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/fe5e94c604826c35a32fa832f35bd036b6799609",
+                "reference": "fe5e94c604826c35a32fa832f35bd036b6799609",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +963,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
@@ -829,11 +997,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
@@ -897,7 +1065,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.49",
+            "version": "2.8.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -944,6 +1112,63 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2018-11-11T11:18:13+00:00"
+        },
+        {
+            "name": "wp-cli/i18n-command",
+            "version": "dev-121-plural-forms",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wp-cli/i18n-command.git",
+                "reference": "3d9cb9568a76acf43d5759763a64184c4d88fad8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/3d9cb9568a76acf43d5759763a64184c4d88fad8",
+                "reference": "3d9cb9568a76acf43d5759763a64184c4d88fad8",
+                "shasum": ""
+            },
+            "require": {
+                "gettext/gettext": "^4.6",
+                "mck89/peast": "^1.8",
+                "wp-cli/wp-cli": "^2"
+            },
+            "require-dev": {
+                "wp-cli/scaffold-command": "^1.2 || ^2",
+                "wp-cli/wp-cli-tests": "^2.0.7"
+            },
+            "type": "wp-cli-package",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                },
+                "bundled": true,
+                "commands": [
+                    "i18n",
+                    "i18n make-pot",
+                    "i18n make-json"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "WP_CLI\\I18n\\": "src/"
+                },
+                "files": [
+                    "i18n-command.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pascal Birchler",
+                    "homepage": "https://pascalbirchler.com/"
+                }
+            ],
+            "description": "Provides internationalization tools for WordPress projects.",
+            "homepage": "https://github.com/wp-cli/i18n-command",
+            "time": "2019-02-19T18:17:58+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -1045,21 +1270,20 @@
         },
         {
             "name": "wp-cli/wp-cli",
-            "version": "v2.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-cli.git",
-                "reference": "6dde820a8f6f183f4b6d751e5be1cd343974f333"
+                "reference": "0b27d1b2b1d70e6a8f60bc786f1dfbe54758f8f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/6dde820a8f6f183f4b6d751e5be1cd343974f333",
-                "reference": "6dde820a8f6f183f4b6d751e5be1cd343974f333",
+                "url": "https://api.github.com/repos/wp-cli/wp-cli/zipball/0b27d1b2b1d70e6a8f60bc786f1dfbe54758f8f9",
+                "reference": "0b27d1b2b1d70e6a8f60bc786f1dfbe54758f8f9",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "ext-readline": "*",
                 "mustache/mustache": "~2.4",
                 "php": ">=5.4",
                 "ramsey/array_column": "~1.1",
@@ -1077,6 +1301,7 @@
                 "wp-cli/wp-cli-tests": "^2.0.8"
             },
             "suggest": {
+                "ext-readline": "Include for a better --prompt implementation",
                 "ext-zip": "Needed to support extraction of ZIP archives when doing downloads or updates"
             },
             "bin": [
@@ -1104,12 +1329,14 @@
                 "cli",
                 "wordpress"
             ],
-            "time": "2018-12-18T17:37:51+00:00"
+            "time": "2019-03-21T12:34:43+00:00"
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "wp-cli/i18n-command": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
