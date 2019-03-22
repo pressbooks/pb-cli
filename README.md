@@ -5,7 +5,7 @@ A suite of wp-cli commands for Pressbooks.
 
 [![Build Status](https://travis-ci.org/pressbooks/pb-cli.svg?branch=master)](https://travis-ci.org/pressbooks/pb-cli)
 
-Quick links: [Using](#using) | [Installing](#installing) | [Contributing](#contributing) | [Support](#support)
+Quick links: [Using](#using) | [Installing](#installing) | [Contributing](docs/contributing.md#contributing) | [Support](docs/contributing.md#support)
 
 ## Using
 
