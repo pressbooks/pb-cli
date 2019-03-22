@@ -7,6 +7,15 @@ use WP_CLI;
 class MakePotCommand extends WP_CLI\I18n\MakePotCommand {
 
 	/**
+	 * Same options as: https://github.com/wp-cli/i18n-command#wp-i18n-make-pot
+	 *
+	 * @when after_wp_load
+	 */
+	public function __invoke( $args, $assoc_args ) {
+		parent::__invoke( $args, $assoc_args );
+	}
+
+	/**
 	 * {@inheritdoc}
 	 */
 	protected function extract_strings() {

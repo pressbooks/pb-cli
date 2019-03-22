@@ -2,7 +2,7 @@
 
 namespace Pressbooks_CLI;
 
-use Pressbooks\Cloner;
+use Pressbooks\Cloner\Cloner;
 use WP_CLI;
 
 class CloneCommand extends PB_CLI_Command {

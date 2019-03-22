@@ -6,6 +6,9 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "autoload": {
+    "psr-4": {
+      "Pressbooks_CLI\\": "inc/"
+    },
     "files": ["command.php"]
   },
   "minimum-stability": "dev",
@@ -23,6 +26,6 @@
     "wp-cli/i18n-command": "dev-121-plural-forms"
   },
   "extra": {
-    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone"]
+    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb make-pot"]
   }
 }
