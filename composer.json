@@ -11,7 +11,6 @@
     },
     "files": ["command.php"]
   },
-  "minimum-stability": "dev",
   "config": {
     "platform": {
       "php": "7.1"
@@ -21,9 +20,9 @@
     "php": ">=7.1"
     },
   "require-dev": {
-    "behat/behat": "~2.5",
+    "behat/behat": "^2.5",
     "wp-cli/wp-cli": "^2",
-    "wp-cli/i18n-command": "dev-master"
+    "wp-cli/i18n-command": "^2.1.2"
   },
   "extra": {
     "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb make-pot"]
