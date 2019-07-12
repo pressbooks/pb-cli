@@ -187,6 +187,6 @@ Once you've done so, you can install this package with:
 ## Upgrade Notice 
 
 
-### 2.0.0 
+### 2.0.1 
 * PB-CLI requires Pressbooks >= 5.7.0    
 
