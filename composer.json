@@ -25,6 +25,6 @@
     "wp-cli/i18n-command": "^2.1.2"
   },
   "extra": {
-    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb make-pot"]
+    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb import", "pb make-pot"]
   }
 }

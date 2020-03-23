@@ -4,7 +4,8 @@ if ( ! class_exists( 'WP_CLI' ) ) {
 	return;
 }
 
-$autoload = __DIR__ . '/vendor/autoload.php';
+//$autoload = __DIR__ . '/vendor/autoload.php';
+$autoload = 'vendor/autoload.php';
 if ( file_exists( $autoload ) ) {
 	require_once $autoload;
 }
@@ -18,5 +19,8 @@ WP_CLI::add_command( 'pb issue-template', [ 'Pressbooks_CLI\IssueTemplateCommand
 WP_CLI::add_command( 'pb theme lock', [ 'Pressbooks_CLI\ThemeLockCommand', 'lock' ] );
 WP_CLI::add_command( 'pb theme unlock', [ 'Pressbooks_CLI\ThemeLockCommand', 'unlock' ] );
 WP_CLI::add_command( 'pb clone', [ 'Pressbooks_CLI\CloneCommand', 'clone' ] );
-WP_CLI::add_command( 'pb make-pot', 'Pressbooks_CLI\I18n\MakePotCommand' );
+WP_CLI::add_command( 'pb import', [ 'Pressbooks_CLI\ImportCommand', 'import' ] );
+WP_CLI::add_command( 'pb batch', [ 'Pressbooks_CLI\ImportCommand', 'batch_import' ] );
+//WP_CLI::add_command( 'pb make-pot', 'Pressbooks_CLI\I18n\MakePotCommand' );
+
 
