@@ -4,7 +4,7 @@ namespace Pressbooks_CLI\I18n;
 
 use Gettext\Extractors\PhpCode;
 use Gettext\Translations;
-use Pressbooks\Container;
+use Jenssegers\Blade\Blade;
 use WP_CLI;
 use WP_CLI\I18n\PhpCodeExtractor;
 use WP_CLI\I18n\PhpFunctionsScanner;
@@ -23,7 +23,8 @@ final class BladeCodeExtractor extends PhpCode {
 
 		// Pull in the BladeCompiler class, compile into regular PHP and then provide it to the regular parser.
 		/** @var \Illuminate\View\Compilers\BladeCompiler $compiler */
-		$compiler = Container::get( 'Blade' )->compiler();
+		$blade = new Blade('views', 'cache');
+		$compiler = $blade->compiler();
 		$string = $compiler->compileString( $string );
 		$functions = new PhpFunctionsScanner( $string );
 
