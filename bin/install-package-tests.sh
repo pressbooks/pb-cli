@@ -31,8 +31,8 @@ download_behat() {
 }
 
 install_db() {
-	mysql -e 'CREATE DATABASE IF NOT EXISTS wp_cli_test;' -uroot -pdevpw
-	mysql -e 'GRANT ALL PRIVILEGES ON wp_cli_test.* TO "wp_cli_test"@"localhost" IDENTIFIED BY "password1"' -uroot -pdevpw
+	mysql -e 'CREATE DATABASE IF NOT EXISTS wp_cli_test;' -uroot
+	mysql -e 'GRANT ALL PRIVILEGES ON wp_cli_test.* TO "wp_cli_test"@"localhost" IDENTIFIED BY "password1"' -uroot
 }
 
 install_wp_cli
