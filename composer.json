@@ -36,5 +36,9 @@
     "files": [
       "command.php"
     ]
+  },
+  "scripts": {
+    "prepare-tests": "bash bin/install-package-tests.sh",
+    "behat": "./vendor/bin/behat"
   }
 }
