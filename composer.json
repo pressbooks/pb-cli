@@ -1,30 +1,53 @@
 {
   "name": "pressbooks/pb-cli",
-  "description": "A suite of wp-cli commands for Pressbooks.",
   "type": "wp-cli-package",
+  "description": "A suite of wp-cli commands for Pressbooks.",
   "homepage": "https://github.com/pressbooks/pb-cli/",
   "license": "GPL-3.0-or-later",
   "authors": [],
+  "require": {
+    "php": ">=7.3",
+    "jenssegers/blade": "1.1.0"
+  },
+  "require-dev": {
+    "wp-cli/entity-command": "^2.1",
+    "wp-cli/extension-command": "^2.1",
+    "wp-cli/i18n-command": "^2.2",
+    "wp-cli/scaffold-command": "^2.0",
+    "wp-cli/wp-cli": "^2.5",
+    "wp-cli/wp-cli-tests": "^3.0"
+  },
+  "config": {
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "extra": {
+    "commands": [
+      "scaffold book-theme",
+      "pb issue-template",
+      "pb theme lock",
+      "pb theme unlock",
+      "pb clone",
+      "pb make-pot"
+    ]
+  },
   "autoload": {
     "psr-4": {
       "Pressbooks_CLI\\": "inc/"
     },
-    "files": ["command.php"]
+    "files": [
+      "command.php"
+    ]
   },
-  "config": {
-    "platform": {
-      "php": "7.1"
-    }
-  },
-  "require": {
-    "php": ">=7.1"
-    },
-  "require-dev": {
-    "behat/behat": "^2.5",
-    "wp-cli/wp-cli": "^2",
-    "wp-cli/i18n-command": "^2.1.2"
-  },
-  "extra": {
-    "commands": ["scaffold book-theme", "pb issue-template", "pb theme lock", "pb theme unlock", "pb clone", "pb make-pot"]
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "behat": "run-behat-tests",
+    "behat-rerun": "rerun-behat-tests",
+    "prepare-tests": "install-package-tests",
+    "test": [
+        "@behat"
+    ]
   }
 }
