@@ -1,0 +1,7 @@
+default:
+  suites:
+    default:
+      contexts:
+        - Pressbooks_CLI\Tests\Context\FeatureContext
+      paths:
+        - features

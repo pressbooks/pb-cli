@@ -6,17 +6,20 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.3",
     "jenssegers/blade": "1.1.0"
   },
   "require-dev": {
-    "behat/behat": "^2.5",
-    "wp-cli/i18n-command": "^2.1.2",
-    "wp-cli/wp-cli": "^2"
+    "wp-cli/entity-command": "^2.1",
+    "wp-cli/extension-command": "^2.1",
+    "wp-cli/i18n-command": "^2.2",
+    "wp-cli/scaffold-command": "^2.0",
+    "wp-cli/wp-cli": "^2.5",
+    "wp-cli/wp-cli-tests": "^3.0"
   },
   "config": {
     "platform": {
-      "php": "7.1"
+      "php": "7.3"
     }
   },
   "extra": {
@@ -35,6 +38,16 @@
     },
     "files": [
       "command.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "behat": "run-behat-tests",
+    "behat-rerun": "rerun-behat-tests",
+    "prepare-tests": "install-package-tests",
+    "test": [
+        "@behat"
     ]
   }
 }
