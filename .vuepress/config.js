@@ -11,4 +11,4 @@ module.exports = {
 			{ link: "/docs/testing", text: "Testing" }
 		]
 	}
-	
+};	
