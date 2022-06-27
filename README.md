@@ -160,20 +160,6 @@ wp pb clone <source> <destination> --user=<user>
 
 	--user=<user>
 		sets request to a specific WordPress user
-		
-		
-### wp pb make-pot
-
-Create a POT file for a WordPress project. Adds support for `.blade.php` templates.
-
-Run the following command in the plugin directory from your development environment:
-
-~~~
- wp pb make-pot . languages/<plugin>.pot --exclude="vendor,symbionts" --headers='{"Report-Msgid-Bugs-To":"https://github.com/pressbooks/<plugin>/"}'
-~~~
-
-Same options as: https://github.com/wp-cli/i18n-command#wp-i18n-make-pot
-
 
 ## Installing
 
@@ -183,9 +169,9 @@ Once you've done so, you can install this package with:
 
     wp package install git@github.com:pressbooks/pb-cli.git
 
-    
-## Upgrade Notice 
+
+## Upgrade Notice
 
 
-### 2.1.0 
+### 2.1.0
 * PB-CLI requires Pressbooks >= 5.21.0
