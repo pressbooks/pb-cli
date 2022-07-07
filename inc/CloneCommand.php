@@ -48,7 +48,8 @@ class CloneCommand extends PB_CLI_Command {
 			WP_CLI::log( "Cloning {$source} into {$dest}" );
 
 			\Pressbooks\Metadata\init_book_data_models();
-			\Pressbooks\Api\init_book();
+			add_action( 'rest_api_init', fn () => \Pressbooks\Api\init_book() );
+			add_filter( 'pb_set_source_clonable', '__return_true' );
 			$cloner = new Cloner( $source, $dest );
 			$success = $cloner->cloneBook();
 
