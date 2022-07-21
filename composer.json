@@ -6,8 +6,8 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "require": {
-    "php": ">=7.3",
-    "jenssegers/blade": "1.1.0"
+    "php": ">=8.0",
+    "jenssegers/blade": "^1.4"
   },
   "require-dev": {
     "wp-cli/entity-command": "^2.1",
@@ -16,11 +16,6 @@
     "wp-cli/scaffold-command": "^2.0",
     "wp-cli/wp-cli": "^2.5",
     "wp-cli/wp-cli-tests": "^3.0"
-  },
-  "config": {
-    "platform": {
-      "php": "7.3"
-    }
   },
   "extra": {
     "commands": [
@@ -49,5 +44,10 @@
     "test": [
         "@behat"
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
