@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.3', '7.4']
+        php: ['8.0']
         wp: ['latest']
         mysql: ['8.0']
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Check out source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Check existence of composer.json & behat.yml files
         id: check_files
@@ -51,7 +51,7 @@ jobs:
           echo "::set-output name=dir::$(composer config cache-files-dir)"
       - name: Use Composer cache
         if: steps.check_files.outputs.files_exists == 'true'
-        uses: actions/cache@master
+        uses: actions/cache@v3
         with:
           path: ${{ steps['composer-cache'].outputs.dir }}
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
