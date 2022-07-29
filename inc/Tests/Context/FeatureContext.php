@@ -16,8 +16,7 @@ class FeatureContext extends \WP_CLI\Tests\Context\FeatureContext {
     public function given_a_pressbooks_install( $subdirectory_or_subdomain = 'subdirectory' ) {
 		$this->install_wp();
 		$subdomains = ! empty( $subdirectory_or_subdomain ) && 'subdomain' === $subdirectory_or_subdomain ? 1 : 0;
-		$this->proc( 'wp core install-network', array( 'title' => 'WP CLI Network', 'subdomains' => $subdomains ) )->run_check();
-		// $this->proc( 'wp plugin install https://github.com/pressbooks/pressbooks/archive/dev.zip' )->run_check();
+		$this->proc( 'wp plugin install https://github.com/pressbooks/pressbooks/archive/dev.zip' )->run_check();
 		$this->proc( 'wp plugin install https://github.com/greatislander/pressbooks/archive/refs/heads/fix/add-api-isset-check-and-tests.zip' )->run_check();
 		$this->proc( 'wp theme install https://github.com/pressbooks/pressbooks-book/archive/dev.zip' )->run_check();
 		$this->proc( 'wp theme install https://github.com/pressbooks/pressbooks-aldine/archive/dev.zip' )->run_check();
