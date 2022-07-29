@@ -16,7 +16,7 @@ class FeatureContext extends \WP_CLI\Tests\Context\FeatureContext {
     public function given_a_pressbooks_install( $subdirectory_or_subdomain = 'subdirectory' ) {
 		$this->install_wp();
 		$subdomains = ! empty( $subdirectory_or_subdomain ) && 'subdomain' === $subdirectory_or_subdomain ? 1 : 0;
-		$this->proc( 'wp plugin install https://github.com/pressbooks/pressbooks/archive/refs/heads/pb-1863-exposePWProtectedPosts.zip' )->run_check();
+		$this->proc( 'wp plugin install https://codeload.github.com/pressbooks/pressbooks/zip/refs/heads/pb-1863-exposePWProtectedPosts' )->run_check();
 		$this->proc( 'wp theme install https://github.com/pressbooks/pressbooks-book/archive/dev.zip' )->run_check();
 		$this->proc( 'wp theme install https://github.com/pressbooks/pressbooks-aldine/archive/dev.zip' )->run_check();
 		$this->proc( 'cd wp-content/plugins/pressbooks && composer install --no-dev --optimize-autoloader && cd ../../../' )->run_check();
