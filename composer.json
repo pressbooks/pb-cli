@@ -12,10 +12,14 @@
   "require-dev": {
     "wp-cli/entity-command": "^2.1",
     "wp-cli/extension-command": "^2.1",
-    "wp-cli/i18n-command": "^2.2",
     "wp-cli/scaffold-command": "^2.0",
     "wp-cli/wp-cli": "^2.5",
     "wp-cli/wp-cli-tests": "^3.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   },
   "extra": {
     "commands": [
@@ -23,8 +27,7 @@
       "pb issue-template",
       "pb theme lock",
       "pb theme unlock",
-      "pb clone",
-      "pb make-pot"
+      "pb clone"
     ]
   },
   "autoload": {
