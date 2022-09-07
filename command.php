@@ -18,5 +18,4 @@ WP_CLI::add_command( 'pb issue-template', [ 'Pressbooks_CLI\IssueTemplateCommand
 WP_CLI::add_command( 'pb theme lock', [ 'Pressbooks_CLI\ThemeLockCommand', 'lock' ] );
 WP_CLI::add_command( 'pb theme unlock', [ 'Pressbooks_CLI\ThemeLockCommand', 'unlock' ] );
 WP_CLI::add_command( 'pb clone', [ 'Pressbooks_CLI\CloneCommand', 'clone' ] );
-WP_CLI::add_command( 'pb make-pot', 'Pressbooks_CLI\I18n\MakePotCommand' );
 
