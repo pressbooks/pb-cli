@@ -6,7 +6,7 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "require": {
-    "php": ">=7.4"
+    "php": "^7.4|8.0.*"
   },
   "require-dev": {
     "wp-cli/entity-command": "^2.1",
@@ -16,9 +16,6 @@
     "wp-cli/wp-cli-tests": "^3.0"
   },
   "config": {
-    "platform": {
-      "php": "7.4"
-    },
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
