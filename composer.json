@@ -6,7 +6,7 @@
   "license": "GPL-3.0-or-later",
   "authors": [],
   "require": {
-    "php": "^7.4|8.0.*"
+    "php": "^8.0"
   },
   "require-dev": {
     "wp-cli/entity-command": "^2.1",
