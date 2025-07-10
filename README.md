@@ -161,6 +161,9 @@ wp pb clone <source> <destination> --user=<user>
 	--user=<user>
 		sets request to a specific WordPress user
 
+### wp pb populate-books-admins
+It populates `pb_book_admins` blog metada for each blog with comma-separated book administrator's user IDs.
+
 ## Installing
 
 Installing this package requires WP-CLI v2.5.0 or greater. Update to the latest stable release with `wp cli update`.
