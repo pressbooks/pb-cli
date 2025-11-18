@@ -9,7 +9,7 @@ use Pressbooks_CLI\NetworkStats\CliLogger;
 use Pressbooks_CLI\NetworkStats\FailureRepository;
 use Pressbooks_CLI\NetworkStats\LockManager;
 use Pressbooks_CLI\NetworkStats\Runner;
-use Pressbooks_CLI\NetworkStats\Visits;
+use PressbooksNetworkAnalytics\Collector\Visits;
 use WP_CLI;
 use WP_CLI\Utils;
 

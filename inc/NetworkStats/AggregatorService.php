@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Pressbooks_CLI\NetworkStats;
 
+use PressbooksNetworkAnalytics\Collector\Visits;
+
 final class AggregatorService {
 
 	public function __construct( private Visits $collector ) {
