@@ -164,6 +164,82 @@ wp pb clone <source> <destination> --user=<user>
 ### wp pb populate-books-admins
 It populates `pb_book_admins` blog metada for each blog with comma-separated book administrator's user IDs.
 
+### wp pb network-aggregate
+
+Aggregate Koko Analytics (visits & referrers) across every site in a Pressbooks multisite using batched processing, retries and failure backoff.
+
+~~~
+wp pb network-aggregate [--mode=<visits|referrers|both>] [--batch-size=<n>] [--start-id=<blog_id>] [--max-sites=<n>] [--since-failures] [--lock-timeout=<sec>] [--retries=<n>]
+~~~
+
+**OPTIONS**
+
+	--mode=<visits|referrers|both>
+		Which data to aggregate. Default: both.
+
+	--batch-size=<n>
+		Number of blogs per batch (controls memory). Default: 200.
+
+	--start-id=<blog_id>
+		Begin at this numeric blog ID (skip smaller IDs). Default: 0.
+
+	--max-sites=<n>
+		Stop after processing this many sites. Default: unlimited.
+
+	--since-failures
+		Process only previously failed sites whose backoff has expired.
+
+	--lock-timeout=<sec>
+		Seconds to wait for MySQL GET_LOCK before aborting gracefully. Default: 5.
+
+	--retries=<n>
+		Max attempts per blog+mode before recording a failure. Default: 3.
+
+**BEHAVIOR**
+* Uses a MySQL advisory lock (`GET_LOCK`) to prevent concurrent runs.
+* Sequential batches scale to large networks without scanning all blogs each retry cycle.
+* Failures stored with exponential backoff; `--since-failures` reprocesses only due rows.
+* Exit codes: 0 (no failures), 2 (failures recorded), 1 (invalid mode/parameters).
+
+**EXAMPLES**
+
+Process entire network (both modes):
+~~~
+wp pb network-aggregate --mode=both --batch-size=200
+~~~
+
+Visits only with higher retry budget:
+~~~
+wp pb network-aggregate --mode=visits --retries=5
+~~~
+
+Retry only previously failed blogs:
+~~~
+wp pb network-aggregate --since-failures --batch-size=300
+~~~
+
+Stagger large networks (start at ID 1000, cap at 500 sites):
+~~~
+wp pb network-aggregate --start-id=1000 --max-sites=500
+~~~
+
+**TROUBLESHOOTING**
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `Cannot declare interface Mustache_Loader` | Duplicate Mustache autoload (WP-CLI + plugin) | Run with `--skip-plugins=pressbooks,pressbooks-network-analytics` or predefine `WP_CLI_SKIP_PLUGINS` |
+| "Another aggregation is running" | Advisory lock held by another process | Retry later or raise `--lock-timeout` |
+| Repeated failures for certain blogs | Persistent data/plugin errors | Use `--since-failures`; inspect failure table entries |
+| High memory usage | Batch size too large | Lower `--batch-size` (e.g. 100) |
+
+Skip plugins if needed:
+~~~
+wp --skip-plugins=pressbooks,pressbooks-network-analytics pb network-aggregate
+~~~
+
+Failure table columns: blog_id, mode, last_error, attempts, last_attempt_at, next_attempt_at (cleared on success).
+
+Internal logic (Runner, LockManager, BackoffStrategy, etc.) lives in `inc/NetworkStats/`.
+
 ## Installing
 
 Installing this package requires WP-CLI v2.5.0 or greater. Update to the latest stable release with `wp cli update`.
